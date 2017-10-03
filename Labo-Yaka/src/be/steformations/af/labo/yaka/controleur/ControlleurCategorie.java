@@ -16,6 +16,7 @@ import be.steformations.af.labo.yaka.session.SessionSSCat;
 @ManagedBean
 @RequestMapping
 public class ControlleurCategorie {
+	
 	@ManagedProperty(value = "#{gestionnaireYaka}")
 	private GestionnaireYaka gestionnaire;
 	@ManagedProperty(value="#{sessionSSCat}")

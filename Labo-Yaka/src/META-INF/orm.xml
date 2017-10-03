@@ -117,5 +117,21 @@
 					
 				</attributes>
 				</entity>
+				
+				<entity class="be.steformations.af.labo.yaka.beans.Proprietes"
+					name="proprietes">
+						<attributes> 
+						<id name="id">
+							<column name="prop_id"/>
+							<generated-value strategy="IDENTITY"/>
+						</id>
+						
+						<basic name="nom">
+						<column name="prop_nom"/>
+						</basic>
+						
+						 </attributes>
+					
+				</entity>
 
 </entity-mappings>

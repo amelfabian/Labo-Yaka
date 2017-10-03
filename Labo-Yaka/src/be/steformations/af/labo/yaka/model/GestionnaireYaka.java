@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
@@ -17,7 +18,9 @@ import be.steformations.af.labo.yaka.beans.SousCategories;
 @ManagedBean
 @ApplicationScoped
 public class GestionnaireYaka {
+	
 	private EntityManager em;
+	
 	public GestionnaireYaka() {
 		super();
 		this.em = Persistence.createEntityManagerFactory("postgresql_eclipselink").createEntityManager();
