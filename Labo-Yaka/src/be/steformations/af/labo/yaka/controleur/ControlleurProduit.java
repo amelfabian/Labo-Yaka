@@ -5,6 +5,7 @@ import javax.faces.bean.ManagedProperty;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import be.steformations.af.labo.yaka.beans.Produits;
 import be.steformations.af.labo.yaka.model.GestionnaireYaka;
 import be.steformations.af.labo.yaka.session.SessionCaracteristiques;
 
@@ -17,6 +18,7 @@ public class ControlleurProduit {
 	@ManagedProperty(value = "#{sessionCaracteristiques}")
 	private SessionCaracteristiques session;
 	private String produits;
+	private Produits var;
 
 	public ControlleurProduit() {
 		super();
@@ -25,17 +27,11 @@ public class ControlleurProduit {
 	}
 
 	public String actionBoutton() {
-		System.out.println("ControlleurProduit.actionBoutton()");
+		System.out.println("ControlleurProduit.actionBoutton() " + produits);
 		int id = Integer.parseInt(produits);
-		this.produits = this.gestionnaire.getCaracteristiquesByProduits(id);
-		session.setVar(produits);
+		this.var = this.gestionnaire.getProduit(id);
+		session.setVar(var);
 		return "articles";
-	}
-
-	public String getVignette() {
-		System.out.println("ControlleurProduit.getVignette()");
-		int id = Integer.parseInt(produits);
-		return this.gestionnaire.getVignetteByProduit(id);
 	}
 
 	public String getProduits() {
@@ -43,6 +39,7 @@ public class ControlleurProduit {
 	}
 
 	public void setProduits(String produits) {
+		System.out.println("ControlleurProduit.setProduits()" + produits);
 		this.produits = produits;
 	}
 
@@ -61,5 +58,7 @@ public class ControlleurProduit {
 	public void setSession(SessionCaracteristiques session) {
 		this.session = session;
 	}
+
+	
 
 }

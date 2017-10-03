@@ -11,15 +11,25 @@
 </h:head>
 <h:body>
 
-
 	<h1>
 		<b>YAKA</b>
 	</h1>
 	<h3>ARTICLES</h3>
+	
+	<p><b><h:outputText value="#{sessionCaracteristiques.var.nom}"/></b></p>
 	<div>
-		<a href="categorie"></a> <img src="images/ControlleurProduit.vignette"
-			alt="logo" width="200" height="200" class="Yaka_logo"></img>
+	<h:outputLink value="categorie.xhtml">
+	 <img src="images/#{sessionCaracteristiques.var.vignette}"
+	alt="logo" width="200" height="200" class="Yaka_logo"></img></h:outputLink>
 	</div>
+	
+	<p><h:outputText value=" description courte : #{sessionCaracteristiques.var.descr_courte}"/></p>
+	
+	<p><h:inputHidden value=" description longue: #{sessionCaracteristiques.var.descr_longue}"/></p>
+	
+	<p><h:outputText value="statitiques: #{sessionCaracteristiques.var.stat}"/></p>
+	
+	
 
 
 

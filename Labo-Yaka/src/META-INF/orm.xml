@@ -18,9 +18,10 @@
 		<query>select p from Produits as p where p.id = :id </query>
 	</named-query>
 
-	<!-- <named-query name="getVignetteByProduit"> <query>select v.prod_vignette 
-		from Produit as v where v.id = :id </query> </named-query> -->
-
+	<named-query name="getProduit">
+		<query>
+	select v from Produits as v where v.id = ?1 </query>
+	</named-query>
 	<named-query name="getCaracteristiquesByProduits">
 		<query>select v from Caracteristique as v where v.id = :id</query>
 	</named-query>

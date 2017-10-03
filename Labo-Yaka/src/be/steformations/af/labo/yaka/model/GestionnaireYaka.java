@@ -44,11 +44,12 @@ public class GestionnaireYaka {
 		
 	}
 	
-	public String getVignetteByProduit(int id){
+	public Produits getProduit(int id){
 		System.out.println("GestionnaireYaka.getVignetteByProduit()" + id);
-		return this.em.createNamedQuery("getVignetteByProduit",Produits.class).setParameter("id", id).toString();
+		return this.em.createNamedQuery("getProduit",Produits.class).setParameter(1, id).getSingleResult();
 		
 	}
+	
 	
 	public String getCaracteristiquesByProduits(int id){
 		System.out.println("GestionnaireYaka.getCaracteristiquesByProduits()");
