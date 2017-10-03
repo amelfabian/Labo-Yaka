@@ -9,22 +9,22 @@
 	<named-query name="getAllCategories">
 		<query>select c from Categorie as c </query>
 	</named-query>
-	
+
 	<named-query name="getSousCategorieByIDCat">
 		<query>select s from Sous_Categories as s where s.fk_categories.id = ?1 </query>
 	</named-query>
-	
+
 	<named-query name="getProduitByIDSsCat">
 		<query>select p from Produits as p where p.id = :id </query>
 	</named-query>
-	
-	<named-query name="getVignetteByProduit">
-		<query>select v.prod_vignette from Produit as v  where v.id = :id  </query>
-	</named-query>
-	
+
+	<!-- <named-query name="getVignetteByProduit"> <query>select v.prod_vignette 
+		from Produit as v where v.id = :id </query> </named-query> -->
+
 	<named-query name="getCaracteristiquesByProduits">
 		<query>select v from Caracteristique as v where v.id = :id</query>
 	</named-query>
+
 	<entity class="be.steformations.af.labo.yaka.beans.Categorie"
 		name="Categorie">
 		<table name="categories" />
@@ -41,97 +41,100 @@
 			</basic>
 		</attributes>
 	</entity>
-	
-	
+
+
 	<entity class="be.steformations.af.labo.yaka.beans.SousCategories"
 		name="Sous_Categories">
-		<table name="sous_categories"/>
+		<table name="sous_categories" />
 		<attributes>
 			<id name="id">
-				<column name="sscat_id"/>
-				<generated-value strategy="IDENTITY"/>
+				<column name="sscat_id" />
+				<generated-value strategy="IDENTITY" />
 			</id>
 			<basic name="nom">
-				<column name="sscat_nom"/>
+				<column name="sscat_nom" />
 			</basic>
 			<basic name="stat">
-				<column name="sscat_stat"/>
+				<column name="sscat_stat" />
 			</basic>
 			<many-to-one name="fk_categories">
-			<join-column name="sscat_fk_categories"/>
+				<join-column name="sscat_fk_categories" />
 			</many-to-one>
-		
-		</attributes>
-		
-		</entity>
-	
 
-		<entity class="be.steformations.af.labo.yaka.beans.Produits"
-			name="Produits">
-			<attributes>
-				<id name="id">
-					<column name="prod_id"/>
-					<generated-value strategy="IDENTITY"/>
-				</id>
-				<basic name="nom">
-					<column name="prod_nom"/>
-				 </basic>
-				 <basic name="vignette">
-				 	<column name="prod_vignette"/>
-				 </basic>
-				 <basic name="image">
-				 	<column name="prod_image"/>
-				 </basic>
-				 <basic name="descr_courte">
-				 	<column name="prod_descr_courte"/>
-				 </basic>
-				 <basic name="descr_longue">
-				 	<column name="prod_descr_longue"/>
-				 </basic>
-				 <basic name="stat">
-				 	<column name="prod_stat"/>	
-				 </basic>
-				 <many-to-one name="sous_categorie_fk">
-				 	<join-column name="prod_fk_sous_categories"/>
-				 </many-to-one>
-				 
-			</attributes></entity>
-			
-			<entity class="be.steformations.af.labo.yaka.beans.Caracteristique"
-				name="Caracteristique">
-				<attributes>
-					<id name="id">
-						<column name="car_id"/>
-						<generated-value strategy="IDENTITY"/>
-					</id>
-					
-					<basic name="valeur">
-						<column name="car_valeur"/>
-					</basic>
-					<many-to-one name="fk_produits">
-						<join-column name="car_fk_produits"/>
-					</many-to-one>
-					<many-to-one name="fk_proprietes">
-						<join-column name="car_fk_proprietes"/>
-					</many-to-one>
-					
-				</attributes>
-				</entity>
-				
-				<entity class="be.steformations.af.labo.yaka.beans.Proprietes"
-					name="proprietes">
-						<attributes> 
-						<id name="id">
-							<column name="prop_id"/>
-							<generated-value strategy="IDENTITY"/>
-						</id>
-						
-						<basic name="nom">
-						<column name="prop_nom"/>
-						</basic>
-						
-						 </attributes>
-					
-				</entity>
+		</attributes>
+
+	</entity>
+
+
+	<entity class="be.steformations.af.labo.yaka.beans.Produits"
+		name="Produits">
+		<table name="produits" />
+		<attributes>
+			<id name="id">
+				<column name="prod_id" />
+				<generated-value strategy="IDENTITY" />
+			</id>
+			<basic name="nom">
+				<column name="prod_nom" />
+			</basic>
+			<basic name="vignette">
+				<column name="prod_vignette" />
+			</basic>
+			<basic name="image">
+				<column name="prod_image" />
+			</basic>
+			<basic name="descr_courte">
+				<column name="prod_descr_courte" />
+			</basic>
+			<basic name="descr_longue">
+				<column name="prod_descr_longue" />
+			</basic>
+			<basic name="stat">
+				<column name="prod_stat" />
+			</basic>
+			<many-to-one name="sous_categorie_fk">
+				<join-column name="prod_fk_sous_categories" />
+			</many-to-one>
+
+		</attributes>
+	</entity>
+
+	<entity class="be.steformations.af.labo.yaka.beans.Caracteristique"
+		name="Caracteristique">
+		<table name="caracteristiques" />
+		<attributes>
+			<id name="id">
+				<column name="car_id" />
+				<generated-value strategy="IDENTITY" />
+			</id>
+
+			<basic name="valeur">
+				<column name="car_valeur" />
+			</basic>
+			<many-to-one name="fk_produits">
+				<join-column name="car_fk_produits" />
+			</many-to-one>
+			<many-to-one name="fk_proprietes">
+				<join-column name="car_fk_proprietes" />
+			</many-to-one>
+
+		</attributes>
+	</entity>
+
+	<entity class="be.steformations.af.labo.yaka.beans.Proprietes"
+		name="proprietes">
+		<attributes>
+			<id name="id">
+				<column name="prop_id" />
+				<generated-value strategy="IDENTITY" />
+			</id>
+
+			<basic name="nom">
+				<column name="prop_nom" />
+			</basic>
+
+		</attributes>
+
+	</entity>
 
 </entity-mappings>

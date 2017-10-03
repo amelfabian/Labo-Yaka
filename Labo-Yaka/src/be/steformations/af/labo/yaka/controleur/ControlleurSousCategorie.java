@@ -18,7 +18,7 @@ import be.steformations.af.labo.yaka.session.SessionSSCat;
 public class ControlleurSousCategorie {
 	@ManagedProperty(value = "#{gestionnaireYaka}")
 	private GestionnaireYaka gestionnaire;
-	@ManagedProperty(value="#{sessionProduit}")
+	@ManagedProperty(value = "#{sessionProduit}")
 	private SessionProduit sessionP;
 	private String sscat;
 	private List<Produits> var;
@@ -34,20 +34,18 @@ public class ControlleurSousCategorie {
 	public void setGestionnaire(GestionnaireYaka gestionnaire) {
 		this.gestionnaire = gestionnaire;
 	}
-	
-	public String getSousCategories(){
+
+	public String getSousCategories() {
 		System.out.println("ControlleurSousCategorie.getSousCategories()" + sscat);
 		return this.sscat;
 	}
-	
-	public void setSousCategories(String sscat){
+
+	public void setSousCategories(String sscat) {
 		System.out.println("ControlleurSousCategorie.setSousCategories()" + sscat);
 		this.sscat = sscat;
 	}
 
-	
-	
-	public String bouttonSSCat(){
+	public String bouttonSSCat() {
 		System.out.println("ControlleurSousCategorie.boutonSSCat()" + sscat);
 		int id = Integer.parseInt(sscat);
 		this.var = this.gestionnaire.getProduitBySsCat(id);
@@ -63,6 +61,4 @@ public class ControlleurSousCategorie {
 		this.sessionP = sessionP;
 	}
 
-	
-	
 }

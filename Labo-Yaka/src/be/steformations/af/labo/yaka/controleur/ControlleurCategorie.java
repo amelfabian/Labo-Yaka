@@ -23,6 +23,7 @@ public class ControlleurCategorie {
 	private SessionSSCat session;
 	private String cat;
 	private List<SousCategories> var;
+	
 	public ControlleurCategorie() {
 		super();
 		System.out.println("ControlleurCategorie.ControlleurCategorie()");
