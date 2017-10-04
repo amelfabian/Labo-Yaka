@@ -22,12 +22,12 @@
 			alt="logo" width="200" height="200" class="Yaka_logo"></img>
 	</div>
 	<h:form>
-		<h:selectOneMenu value="#{controlleurCategorie.categories}">
-			<f:selectItem itemLabel="Catégories" itemValue="-1" />
-			<f:selectItems var="a" value="#{gestionnaireYaka.allCategories}"
+		<h:selectOneMenu value="#{controlleurSousCategorie.sousCategories}">
+			<f:selectItem itemLabel="Sous catégories" itemValue="-1" />
+			<f:selectItems var="a" value="#{sessionSSCat.var}"
 				itemLabel="#{a.nom}" itemValue="#{a.id}" />
 		</h:selectOneMenu>
-		<h:commandButton action="#{controlleurCategorie.actionBoutton}" value="Selectionner"/>
+		<h:commandButton action="#{controlleurSousCategorie.bouttonSSCat}" value="Selectionner"/>
 	</h:form>
 
 

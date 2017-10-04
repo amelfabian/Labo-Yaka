@@ -16,7 +16,7 @@ public class ControlleurCaracteristiques {
 			
 			@ManagedProperty(value = "#{gestionnaireYaka}")
 			private GestionnaireYaka gestionnaire;
-			@ManagedProperty(value = "#{sessionCaracteristiques")
+			@ManagedProperty(value = "#{sessionCaracteristiques}")
 			private SessionCaracteristiques session;
 			private int id;
 			private List<Caracteristique> listCar;
@@ -34,4 +34,38 @@ public class ControlleurCaracteristiques {
 			session.setVarCar(listCar);
 			return "caracteristiquesDetail";
 		}
+
+		public GestionnaireYaka getGestionnaire() {
+			return gestionnaire;
+		}
+
+		public void setGestionnaire(GestionnaireYaka gestionnaire) {
+			this.gestionnaire = gestionnaire;
+		}
+
+		public SessionCaracteristiques getSession() {
+			return session;
+		}
+
+		public void setSession(SessionCaracteristiques session) {
+			this.session = session;
+		}
+
+		public int getId() {
+			return id;
+		}
+
+		public void setId(int id) {
+			this.id = id;
+		}
+
+		public List<Caracteristique> getListCar() {
+			return listCar;
+		}
+
+		public void setListCar(List<Caracteristique> listCar) {
+			this.listCar = listCar;
+		}
+		
+		
 }
