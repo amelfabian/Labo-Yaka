@@ -22,7 +22,6 @@ public class ControlleurProduit {
 	private SessionCaracteristiques session;
 	private String produits;
 	private Produits var;
-	private List<Caracteristique> listCar;
 
 	public ControlleurProduit() {
 		super();
@@ -37,7 +36,6 @@ public class ControlleurProduit {
 		session.setVar(var);
 		return "articles";
 	}
-
 
 	public String getProduits() {
 		return produits;
@@ -55,15 +53,13 @@ public class ControlleurProduit {
 	public void setGestionnaire(GestionnaireYaka gestionnaire) {
 		this.gestionnaire = gestionnaire;
 	}
+
 	public SessionCaracteristiques getSession() {
 		return session;
 	}
 
-
 	public void setSession(SessionCaracteristiques session) {
 		this.session = session;
 	}
-	
-
 
 }
