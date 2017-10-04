@@ -25,10 +25,13 @@
 	
 	<p><h:outputText escape="false" value=" description longue: #{sessionCaracteristiques.var.descr_longue}"/></p>
 	
-	<p><h:outputText value="statistiques: #{sessionCaracteristiques.var.stat}"/></p>
+	
 	
 	<p><h:outputLink value="panier.xhtml"> Mon panier </h:outputLink> </p>
 
+	<h:form>
+	<h:commandButton value ="Caracteristiques" action="#{gestionnaireYaka.actionCaracteristiques}"/>
+	</h:form>
 
 
 </h:body>

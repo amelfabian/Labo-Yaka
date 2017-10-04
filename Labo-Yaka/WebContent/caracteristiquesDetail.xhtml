@@ -7,27 +7,31 @@
 	xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
 	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 <h:head>
-	<link rel="stylesheet" type="text/css" href="css/categorie.css"></link>
+	<link rel="stylesheet" type="text/css" href="css/mesStyles.css"></link>
 </h:head>
 <h:body>
 
 	<h1>
 		<b>YAKA</b>
 	</h1>
-	<h3>ARTICLES</h3>
+	<h3>Caractéristiques détaillée</h3>
 	
 	<p><b><h:outputText value="#{sessionCaracteristiques.var.nom}"/></b></p>
 	<div>
-	<h:outputLink value="caracteristiques.xhtml">
-	 <img src="images/#{sessionCaracteristiques.var.vignette}"></img></h:outputLink>
+	<h:outputLink value="categorie.xhtml">
+	 <img src="images/#{sessionCaracteristiques.var.image}"></img></h:outputLink>
 	</div>
 	
-	<p><h:outputText value=" description courte : #{sessionCaracteristiques.var.descr_courte}"/></p>
 	
+	<p><h:outputText escape="false" value=" description longue: #{sessionCaracteristiques.var.descr_longue}"/></p>
+	
+	
+	
+	<p><h:outputLink value="panier.xhtml"> Mon panier </h:outputLink> </p>
 
-	
-	
-
+	<form>
+	<h:button value ="Caracteristiques" action=""/>
+	</form>
 
 
 </h:body>

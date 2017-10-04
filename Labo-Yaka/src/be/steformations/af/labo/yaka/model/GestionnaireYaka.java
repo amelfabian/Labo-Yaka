@@ -15,11 +15,18 @@ import be.steformations.af.labo.yaka.beans.Caracteristique;
 import be.steformations.af.labo.yaka.beans.Categorie;
 import be.steformations.af.labo.yaka.beans.Produits;
 import be.steformations.af.labo.yaka.beans.SousCategories;
+import be.steformations.af.labo.yaka.session.SessionCaracteristiques;
+import be.steformations.af.labo.yaka.session.SessionProduit;
 @ManagedBean
 @ApplicationScoped
 public class GestionnaireYaka {
 	
 	private EntityManager em;
+	private int id;
+	private List<Caracteristique> listCar;
+	private SessionCaracteristiques session;
+	
+	
 	
 	public GestionnaireYaka() {
 		super();
@@ -45,16 +52,22 @@ public class GestionnaireYaka {
 	}
 	
 	public Produits getProduit(int id){
-		System.out.println("GestionnaireYaka.getVignetteByProduit()" + id);
+		System.out.println("GestionnaireYaka.getProduit()" + id);
+		this.id = id;
 		return this.em.createNamedQuery("getProduit",Produits.class).setParameter(1, id).getSingleResult();
 		
 	}
 	
 	
-	public String getCaracteristiquesByProduits(int id){
+	public List<Caracteristique> getCaracteristiquesByProduits(int id){
 		System.out.println("GestionnaireYaka.getCaracteristiquesByProduits()");
-		return this.em.createNamedQuery("getCaracteristiquesByProduits",Caracteristique.class).setParameter("id", id).toString();
+		return this.em.createNamedQuery("getCaracteristiquesByProduits",Caracteristique.class).setParameter(1, id).getResultList();
 	}
 	
-
+	public String actionCaracteristiques(){
+		System.out.println("ControlleurProduit.actionCaracteristiques()" + id);
+		this.listCar = this.getCaracteristiquesByProduits(id);
+		session.setVarCar(listCar);
+		return "caracteristiquesDetail";
+	}
 }

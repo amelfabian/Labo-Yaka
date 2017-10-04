@@ -23,7 +23,7 @@
 	select v from Produits as v where v.id = ?1 </query>
 	</named-query>
 	<named-query name="getCaracteristiquesByProduits">
-		<query>select v from Caracteristique as v where v.id = :id</query>
+		<query>select v from Caracteristique as v where v.id = ?1</query>
 	</named-query>
 
 	<entity class="be.steformations.af.labo.yaka.beans.Categorie"

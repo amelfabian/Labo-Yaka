@@ -1,10 +1,13 @@
 package be.steformations.af.labo.yaka.controleur;
 
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import be.steformations.af.labo.yaka.beans.Caracteristique;
 import be.steformations.af.labo.yaka.beans.Produits;
 import be.steformations.af.labo.yaka.model.GestionnaireYaka;
 import be.steformations.af.labo.yaka.session.SessionCaracteristiques;
@@ -19,10 +22,11 @@ public class ControlleurProduit {
 	private SessionCaracteristiques session;
 	private String produits;
 	private Produits var;
+	private List<Caracteristique> listCar;
 
 	public ControlleurProduit() {
 		super();
-		System.out.println("ControlleurProduit.ControlleurProduit()");
+		System.out.println("ControlleurProduit.ControlleurProduit()" + produits);
 
 	}
 
@@ -33,6 +37,7 @@ public class ControlleurProduit {
 		session.setVar(var);
 		return "articles";
 	}
+
 
 	public String getProduits() {
 		return produits;
@@ -50,15 +55,15 @@ public class ControlleurProduit {
 	public void setGestionnaire(GestionnaireYaka gestionnaire) {
 		this.gestionnaire = gestionnaire;
 	}
-
 	public SessionCaracteristiques getSession() {
 		return session;
 	}
 
+
 	public void setSession(SessionCaracteristiques session) {
 		this.session = session;
 	}
-
 	
+
 
 }
