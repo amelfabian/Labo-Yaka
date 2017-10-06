@@ -24,7 +24,7 @@
 	<h:form>
 		<h:selectOneMenu value="#{controlleurSousCategorie.sousCategories}">
 			<f:selectItem itemLabel="Sous catégories" itemValue="-1" />
-			<f:selectItems var="a" value="#{sessionSSCat.var}"
+			<f:selectItems var="a" value="#{sessionClient.varSSCat}"
 				itemLabel="#{a.nom}" itemValue="#{a.id}" />
 		</h:selectOneMenu>
 		<h:commandButton action="#{controlleurSousCategorie.bouttonSSCat}" value="Selectionner"/>

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import be.steformations.af.labo.yaka.beans.Categorie;
 import be.steformations.af.labo.yaka.beans.SousCategories;
 import be.steformations.af.labo.yaka.model.GestionnaireYaka;
-import be.steformations.af.labo.yaka.session.SessionSSCat;
+import be.steformations.af.labo.yaka.session.SessionClient;
 
 @ManagedBean
 @RequestMapping
@@ -19,8 +19,8 @@ public class ControlleurCategorie {
 	
 	@ManagedProperty(value = "#{gestionnaireYaka}")
 	private GestionnaireYaka gestionnaire;
-	@ManagedProperty(value="#{sessionSSCat}")
-	private SessionSSCat session;
+	@ManagedProperty(value="#{sessionClient}")
+	private SessionClient session;
 	private String cat;
 	private List<SousCategories> var;
 	
@@ -53,16 +53,16 @@ public class ControlleurCategorie {
 	 System.out.println("ControlleurCategorie.actionBouton()" + cat);
 	 	int id = Integer.parseInt(cat);
 		this.var = this.gestionnaire.getSousCategorieByIDCat(id);
-		session.setVar(var);
+		session.setVarSSCat(var);;
 		return "sousCategorie";
 	}
 
-	public SessionSSCat getSession() {
+	public SessionClient getSession() {
 		System.out.println("ControlleurCategorie.getSession()");
 		return session;
 	}
 
-	public void setSession(SessionSSCat session) {
+	public void setSession(SessionClient session) {
 		System.out.println("ControlleurCategorie.setSession()");
 		this.session = session;
 	}

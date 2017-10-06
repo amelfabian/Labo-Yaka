@@ -9,15 +9,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import be.steformations.af.labo.yaka.beans.Caracteristique;
 import be.steformations.af.labo.yaka.model.GestionnaireYaka;
-import be.steformations.af.labo.yaka.session.SessionCaracteristiques;
+import be.steformations.af.labo.yaka.session.SessionClient;
 @ManagedBean
 @RequestMapping
 public class ControlleurCaracteristiques {
 			
 			@ManagedProperty(value = "#{gestionnaireYaka}")
 			private GestionnaireYaka gestionnaire;
-			@ManagedProperty(value = "#{sessionCaracteristiques}")
-			private SessionCaracteristiques session;
+			@ManagedProperty(value = "#{sessionClient}")
+			private SessionClient session;
 			private int id;
 			private List<Caracteristique> listCar;
 			
@@ -31,6 +31,7 @@ public class ControlleurCaracteristiques {
 		public String actionCaracteristiques(){
 			System.out.println("ControlleurCaracteristiques.actionCaracteristiques()");
 			this.listCar = this.gestionnaire.getCaracteristiquesByProduits(id);
+			
 			session.setVarCar(listCar);
 			return "caracteristiquesDetail";
 		}
@@ -43,11 +44,11 @@ public class ControlleurCaracteristiques {
 			this.gestionnaire = gestionnaire;
 		}
 
-		public SessionCaracteristiques getSession() {
+		public SessionClient getSession() {
 			return session;
 		}
 
-		public void setSession(SessionCaracteristiques session) {
+		public void setSession(SessionClient session) {
 			this.session = session;
 		}
 

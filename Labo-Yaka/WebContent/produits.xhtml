@@ -24,7 +24,7 @@
 	<h:form>
 	<h:selectOneMenu value="#{controlleurProduit.produits}">
 <f:selectItem itemLabel="produits" itemValue="-1" />
-<f:selectItems var="a" value="#{sessionProduit.var}"
+<f:selectItems var="a" value="#{sessionClient.varProd}"
 	itemLabel="#{a.nom}" itemValue="#{a.id}"/>
 </h:selectOneMenu>
 <h:commandButton action="#{controlleurProduit.actionBoutton}" value="Selectionner"></h:commandButton>

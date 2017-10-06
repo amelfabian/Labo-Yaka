@@ -8,18 +8,16 @@ import javax.faces.bean.ManagedProperty;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import be.steformations.af.labo.yaka.beans.Produits;
-import be.steformations.af.labo.yaka.beans.SousCategories;
 import be.steformations.af.labo.yaka.model.GestionnaireYaka;
-import be.steformations.af.labo.yaka.session.SessionProduit;
-import be.steformations.af.labo.yaka.session.SessionSSCat;
+import be.steformations.af.labo.yaka.session.SessionClient;
 
 @ManagedBean
 @RequestMapping
 public class ControlleurSousCategorie {
 	@ManagedProperty(value = "#{gestionnaireYaka}")
 	private GestionnaireYaka gestionnaire;
-	@ManagedProperty(value = "#{sessionProduit}")
-	private SessionProduit sessionP;
+	@ManagedProperty(value = "#{sessionClient}")
+	private SessionClient session;
 	private String sscat;
 	private List<Produits> var;
 
@@ -49,16 +47,16 @@ public class ControlleurSousCategorie {
 		System.out.println("ControlleurSousCategorie.boutonSSCat()" + sscat);
 		int id = Integer.parseInt(sscat);
 		this.var = this.gestionnaire.getProduitBySsCat(id);
-		sessionP.setVar(var);
+		session.setVarProd(var);
 		return "produits";
 	}
 
-	public SessionProduit getSessionP() {
-		return sessionP;
+	public SessionClient getSession() {
+		return session;
 	}
 
-	public void setSessionP(SessionProduit sessionP) {
-		this.sessionP = sessionP;
+	public void setSession(SessionClient sessionP) {
+		this.session = sessionP;
 	}
 
 }

@@ -16,22 +16,44 @@
 	</h1>
 	<h3>Caractéristiques détaillée</h3>
 	
-	<p><b><h:outputText value="#{sessionCaracteristiques.var.nom}"/></b></p>
-	<div>
-	<h:outputLink value="categorie.xhtml">
-	 <img src="images/#{sessionCaracteristiques.var.image}"></img></h:outputLink>
-	</div>
+	<fieldset>
+		<h:panelGroup rendered="#{not empty sessionCaracteristiques.varCar.fk_produits}">
+			<ul>
+				<ui:repeat var="r" value="#{sessionCaracteristiques.varCar.fk_produits}">
+					<li>
+						<h:outputText value="#{r.nom}" />
+											
+					</li>
+				</ui:repeat>
+			</ul>
+		</h:panelGroup>
+		<h:panelGroup rendered="#{empty sessionCaracteristiques.varCar.fk_produits}">
+			pas de produits
+		</h:panelGroup>
+		</fieldset>
+	
+		<fieldset>
+		<h:panelGroup rendered="#{not empty sessionCaracteristiques.varcar.fk_proprietes}">
+			<ul>
+				<ui:repeat var="r" value="#{sessionCaracteristiques.varCar.fk_proprietes}">
+					<li>
+						<h:outputText value="#{r.nom}" />
+											
+					</li>
+				</ui:repeat>
+			</ul>
+		</h:panelGroup>
+		<h:panelGroup rendered="#{empty sessionCaracteristiques.varCar.fk_proprietes}">
+			pas de propriétés
+		</h:panelGroup>
+		</fieldset>
 	
 	
-	<p><h:outputText escape="false" value=" description longue: #{sessionCaracteristiques.var.descr_longue}"/></p>
 	
 	
 	
-	<p><h:outputLink value="panier.xhtml"> Mon panier </h:outputLink> </p>
+	<p><h:outputLink value="caracteristiques.xhtml">retour</h:outputLink> </p>
 
-	<form>
-	<h:button value ="Caracteristiques" action=""/>
-	</form>
 
 
 </h:body>

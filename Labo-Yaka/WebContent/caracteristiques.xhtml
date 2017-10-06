@@ -16,14 +16,14 @@
 	</h1>
 	<h3>Caractéristiques de l'article</h3>
 	
-	<p><b><h:outputText value="#{sessionCaracteristiques.var.nom}"/></b></p>
+	<p><b><h:outputText value="#{sessionClient.var.nom}"/></b></p>
 	<div>
 	<h:outputLink value="categorie.xhtml">
-	 <img src="images/#{sessionCaracteristiques.var.image}"></img></h:outputLink>
+	 <img src="images/#{sessionClient.var.image}"></img></h:outputLink>
 	</div>
 	
 	
-	<p><h:outputText escape="false" value=" description longue: #{sessionCaracteristiques.var.descr_longue}"/></p>
+	<p><h:outputText escape="false" value=" description longue: #{sessionClient.var.descr_longue}"/></p>
 	
 	
 	

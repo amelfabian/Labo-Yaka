@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import be.steformations.af.labo.yaka.beans.Caracteristique;
 import be.steformations.af.labo.yaka.beans.Produits;
 import be.steformations.af.labo.yaka.model.GestionnaireYaka;
-import be.steformations.af.labo.yaka.session.SessionCaracteristiques;
+import be.steformations.af.labo.yaka.session.SessionClient;
 
 @ManagedBean
 @RequestMapping
@@ -18,8 +18,8 @@ public class ControlleurProduit {
 
 	@ManagedProperty(value = "#{gestionnaireYaka}")
 	private GestionnaireYaka gestionnaire;
-	@ManagedProperty(value = "#{sessionCaracteristiques}")
-	private SessionCaracteristiques session;
+	@ManagedProperty(value = "#{sessionClient}")
+	private SessionClient session;
 	private String produits;
 	private Produits var;
 
@@ -54,11 +54,11 @@ public class ControlleurProduit {
 		this.gestionnaire = gestionnaire;
 	}
 
-	public SessionCaracteristiques getSession() {
+	public SessionClient getSession() {
 		return session;
 	}
 
-	public void setSession(SessionCaracteristiques session) {
+	public void setSession(SessionClient session) {
 		this.session = session;
 	}
 
