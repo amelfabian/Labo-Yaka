@@ -9,10 +9,9 @@ import javax.persistence.EntityManager;
 
 import javax.persistence.Persistence;
 
-
-
 import be.steformations.af.labo.yaka.beans.Caracteristique;
 import be.steformations.af.labo.yaka.beans.Categorie;
+import be.steformations.af.labo.yaka.beans.Prix;
 import be.steformations.af.labo.yaka.beans.Produits;
 import be.steformations.af.labo.yaka.beans.Proprietes;
 import be.steformations.af.labo.yaka.beans.SousCategories;
@@ -60,7 +59,9 @@ public class GestionnaireYaka {
 		return this.em.createNamedQuery("getCaracteristiquesByProduits",Caracteristique.class).setParameter(1, id).getResultList();
 	}
 	
-	
+	public List<Prix> getPrixByCaracteristiques(){
+		return null;
+	}
 	
 	
 }

@@ -2,9 +2,10 @@ package be.steformations.af.labo.yaka.beans;
 
 import java.util.List;
 
-public class Article {
+public class Prix {
 	private int id;
 	private float tva_euro;
+	private float vol_conditionnement;
 	private List<Caracteristique> caractéristiques;
 
 	public int getId() {
@@ -42,7 +43,7 @@ public class Article {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Article other = (Article) obj;
+		Prix other = (Prix) obj;
 		if (caractéristiques == null) {
 			if (other.caractéristiques != null)
 				return false;
@@ -57,6 +58,12 @@ public class Article {
 	@Override
 	public String toString() {
 		return "Article [id=" + id + ", tva_euro=" + tva_euro + ", caractéristiques=" + caractéristiques + "]";
+	}
+	public float getVol_conditionnement() {
+		return vol_conditionnement;
+	}
+	public void setVol_conditionnement(float vol_conditionnement) {
+		this.vol_conditionnement = vol_conditionnement;
 	}
 	
 	

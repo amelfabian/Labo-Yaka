@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class Ligne_Commande {
 	private int id;
 	private Commande fk_commande;
-	private Article fk_article;
+	private Prix fk_prix;
 	private int quantite;
 	public int getId() {
 		return id;
@@ -21,11 +21,13 @@ public class Ligne_Commande {
 	public void setFk_commande(Commande fk_commande) {
 		this.fk_commande = fk_commande;
 	}
-	public Article getFk_article() {
-		return fk_article;
+
+	
+	public Prix getFk_prix() {
+		return fk_prix;
 	}
-	public void setFk_article(Article fk_article) {
-		this.fk_article = fk_article;
+	public void setFk_prix(Prix fk_prix) {
+		this.fk_prix = fk_prix;
 	}
 	public int getQuantite() {
 		return quantite;
@@ -37,7 +39,7 @@ public class Ligne_Commande {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((fk_article == null) ? 0 : fk_article.hashCode());
+		result = prime * result + ((fk_prix == null) ? 0 : fk_prix.hashCode());
 		result = prime * result + ((fk_commande == null) ? 0 : fk_commande.hashCode());
 		result = prime * result + id;
 		result = prime * result + quantite;
@@ -52,10 +54,10 @@ public class Ligne_Commande {
 		if (getClass() != obj.getClass())
 			return false;
 		Ligne_Commande other = (Ligne_Commande) obj;
-		if (fk_article == null) {
-			if (other.fk_article != null)
+		if (fk_prix == null) {
+			if (other.fk_prix != null)
 				return false;
-		} else if (!fk_article.equals(other.fk_article))
+		} else if (!fk_prix.equals(other.fk_prix))
 			return false;
 		if (fk_commande == null) {
 			if (other.fk_commande != null)
@@ -70,7 +72,7 @@ public class Ligne_Commande {
 	}
 	@Override
 	public String toString() {
-		return "Ligne_Commande [id=" + id + ", fk_commande=" + fk_commande + ", fk_article=" + fk_article
+		return "Ligne_Commande [id=" + id + ", fk_commande=" + fk_commande + ", fk_article=" + fk_prix
 				+ ", quantite=" + quantite + "]";
 	}
 	

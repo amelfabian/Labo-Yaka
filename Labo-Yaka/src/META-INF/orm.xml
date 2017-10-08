@@ -124,6 +124,7 @@
 
 	<entity class="be.steformations.af.labo.yaka.beans.Proprietes"
 		name="proprietes">
+		<table name="proprietes"/>
 		<attributes>
 			<id name="id">
 				<column name="prop_id" />
@@ -137,5 +138,26 @@
 		</attributes>
 
 	</entity>
+	
+	<entity class="be.steformations.af.labo.yaka.beans.Prix"
+		name="prix">
+		<table name="prix"/>
+		<attributes>
+			<id name="id">
+				<column name="pri_id"/>
+				<generated-value strategy="IDENTITY" />
+			</id>
+			
+		<basic name="htva_euro">
+			<column name="pri_htva_euro"/>
+		</basic>
+		<basic name="poids">
+			<column name="pri_poids"/>
+		</basic>
+		<basic name="vol_conditionnement">
+			<column name="pri_vol_conditionnement"/>
+		</basic>
+		 </attributes>
+		</entity>
 
 </entity-mappings>

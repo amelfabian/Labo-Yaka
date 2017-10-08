@@ -21,7 +21,7 @@ public class ControlleurProduit {
 	@ManagedProperty(value = "#{sessionClient}")
 	private SessionClient session;
 	private String produits;
-	private Produits var;
+	private List<Caracteristique> var;
 
 	public ControlleurProduit() {
 		super();
@@ -32,8 +32,8 @@ public class ControlleurProduit {
 	public String actionBoutton() {
 		System.out.println("ControlleurProduit.actionBoutton() " + produits);
 		int id = Integer.parseInt(produits);
-		this.var = this.gestionnaire.getProduit(id);
-		session.setVar(var);
+		this.var = this.gestionnaire.getCaracteristiquesByProduits(id);
+		session.setVarCar(var);
 		return "articles";
 	}
 
